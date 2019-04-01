@@ -120,6 +120,7 @@
     <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="LoanControl.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +128,7 @@
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="FileHandler.h" />
     <ClInclude Include="LoanControl.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
