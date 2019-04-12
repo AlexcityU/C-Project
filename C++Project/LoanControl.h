@@ -1,4 +1,8 @@
-#pragma once
+#ifndef LOANCONTROAL_H
+#define LOANCONTROAL_H
+
+
+
 class LoanControl
 {
 public:
@@ -6,3 +10,4 @@ public:
 	~LoanControl();
 };
 
+#endif // !1

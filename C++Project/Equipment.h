@@ -10,7 +10,7 @@ using namespace std;
 class CampEquipment
 {
 private:
-	string id;
+	
 	string itemid;
 	string itemname;
 	string brand;
@@ -19,8 +19,12 @@ private:
 	string condition;
 	string status;
 
+	
+protected:
+	CampEquipment( string itemid, string itemname, string brand, string itemtype, string date, string condition, string status);
+
 public:
-	string getId() const;
+	
 	string getItemId() const;
 	string getItemName() const;
 	string getBrand() const;
@@ -31,31 +35,36 @@ public:
 	void setCondition();
 	void setStatus();
 
-
+	virtual void finditem() {};
 };
 
 class Tent : CampEquipment
 {
 public:
+	void finditem(){}
 	string tentsize;
 	string tenttype;
 	string numdoors;
 	bool doulayer;
 	string color;
+	Tent(string tentsize, string tenttype,string numdoors,bool doulayer,string color);
 };
 class Lantern : CampEquipment
 {
 public:
+	void finditem() {}
 	string lantsize;
 	string lanttype;
 	string fueltype;
-
+	Lantern(string lantsize, string lanttype,string fueltype );
 };
 class Stove : CampEquipment
 {
 public:
+	void finditem() {}
 	string stovetype;
 	string fueltype;
+	Stove(string stovetype, string furltype);
 };
 
 

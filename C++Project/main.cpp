@@ -5,7 +5,47 @@
 #include "LoanControl.h"
 using namespace std;
 
+void admin() {
+
+}
+void userac(string username) {
+
+	int num = 0;
+	cout << "1. Borrow camp equipment:" << endl;
+	cout << "2. Retrieve loan record and loan date:" << endl;
+	cout << "3. View of available camp equipment:" << endl;
+	cout << "back" << endl;
+	switch (switch_on)
+	{
+	default:
+		break;
+	}
+
+
+}
+
+
 int main() {
+	string user;
+	string pw;
+
+	cout << "User name plz:" << endl;
+	cin >> user;
+	cout << "pass word Plz:" << endl;
+	cin >> pw;
+
+	if (user == "admin" && pw == "admin")
+	{
+		admin();
+	}
+	else { userac(user); }
+
+
+
+
+
+
+
 	string str = readFile("123.txt");
 
 

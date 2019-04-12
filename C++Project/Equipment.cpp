@@ -1,9 +1,18 @@
 #include "Equipment.h"
 
-string CampEquipment::getId() const
+CampEquipment::CampEquipment( string itemid, string itemname, string brand, string itemtype, string date, string condition, string status)
 {
-	return id;
+	
+	this->itemid = itemid;
+	this->itemname = itemname;
+	this->brand = brand;
+	this->itemtype = itemtype;
+	this->date =date ;
+	this->condition = condition;
+	this->status = status;
 }
+
+
 
 string CampEquipment::getItemId() const
 {
@@ -48,3 +57,10 @@ void CampEquipment::setCondition()
 void CampEquipment::setStatus()
 {
 }
+
+void CampEquipment::finditem()
+{
+	if (itemtype == "tent")
+	{	}
+}
+
