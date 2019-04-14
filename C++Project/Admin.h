@@ -23,13 +23,16 @@ private:
 
 	bool retrieveEquipments();
 	bool retrieveLoanRecords();
-	void displayrecords();
-	void displayEquipments();
+
+	void updateEquipments();
 
 
 public:
 	CampEquipment *getEquipment(int i);
 
+
+	void displayrecords();
+	void displayEquipments();
 	bool changeCondition(string eid, string condition);
 
 	Admin();

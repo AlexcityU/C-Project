@@ -11,8 +11,8 @@ using namespace std;
 int main() {
 	Admin a = Admin();
 
-	cout << a.getEquipment(0)->getAllInfo();
-
+	cout << a.changeCondition("T001", "good") << endl;
+	a.displayEquipments();
 	system("pause");
 	return 0;
 }

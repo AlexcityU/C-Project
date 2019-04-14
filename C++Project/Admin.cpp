@@ -10,13 +10,14 @@ CampEquipment * Admin::getEquipment(int i)
 
 bool Admin::changeCondition(string eid, string condition)
 {
-	bool can = condition.compare("good") && condition.compare("being repaired") && condition.compare("disposal");
+	bool can = condition.compare("good") && condition.compare("being repaired") && condition.compare("disposal") && condition.compare("damaged");
 	if (!can) {
 		for (int i = 0; i < (this->equipments)[0]->getCount(); i++) {
 			CampEquipment *e = (this->equipments)[i];
 
 			if (!eid.compare(e->getItemId())) {
 				e->setCondition(condition);
+				updateEquipments();
 
 				return true;
 			}
@@ -43,13 +44,13 @@ void Admin::displayrecords()
 void Admin::displayEquipments()
 {
 	for (int i = 0; i < equipments[0]->getCount(); i++) {
-		cout << equipments[i]->getAllInfo();
+		cout << equipments[i]->getAllInfo() << endl;
 	}
 }
 
-bool Admin::retrieveEquipments()
+bool Admin::retrieveLoanRecords()
 {
-	string str = readFile("camp_equipment.txt");
+	string str = readFile("record.txt");
 
 	if (str.empty())
 		return false;
@@ -94,9 +95,19 @@ bool Admin::retrieveEquipments()
 	return true;
 }
 
-bool Admin::retrieveLoanRecords()
+void Admin::updateEquipments()
 {
-	string str = readFile("records.txt");
+	string str = "";
+	for (int i = 0; i < equipments[0]->getCount(); i++) {
+		str += equipments[i]->getAllInfo() + '\n';
+	}
+
+	writeFile("camp_equipment.txt", str);
+}
+
+bool Admin::retrieveEquipments()
+{
+	string str = readFile("camp_equipment.txt");
 
 	if (str.empty())
 		return false;
