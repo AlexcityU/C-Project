@@ -27,6 +27,8 @@ private:
 public:
 	CampEquipment *getEquipment(int i);
 
+	bool changeCondition(string eid, string condition);
+
 	Admin();
 	~Admin();
 

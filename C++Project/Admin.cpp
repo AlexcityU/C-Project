@@ -8,6 +8,23 @@ CampEquipment * Admin::getEquipment(int i)
 	return nullptr;
 }
 
+bool Admin::changeCondition(string eid, string condition)
+{
+	bool can = condition.compare("good") && condition.compare("being repaired") && condition.compare("disposal");
+	if (!can) {
+		for (int i = 0; i < (this->equipments)[0]->getCount(); i++) {
+			CampEquipment *e = (this->equipments)[i];
+
+			if (!eid.compare(e->getItemId())) {
+				e->setCondition(condition);
+
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 Admin::Admin()
 {
 	this->retrieveEquipments();
