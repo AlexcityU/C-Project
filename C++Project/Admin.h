@@ -21,7 +21,7 @@ private:
 	int equipment_size;
 	int records_size;
 
-	void retrieveEquipments();
+	bool retrieveEquipments();
 	bool retrieveLoanRecords();
 
 public:
