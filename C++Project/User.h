@@ -32,7 +32,7 @@ public:
 	bool borrowEquip();
 	bool returnEquip();
 
-	virtual int findBorrow() const = 0;
+	virtual int findBorrow() const=0 ;
 };
 
 class Scout : public User

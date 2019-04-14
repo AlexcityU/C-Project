@@ -119,6 +119,7 @@
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="LoanControl.cpp" />
+    <ClCompile Include="LoanRecord.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="User.cpp" />
@@ -128,6 +129,7 @@
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="FileHandler.h" />
     <ClInclude Include="LoanControl.h" />
+    <ClInclude Include="LoanRecord.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>

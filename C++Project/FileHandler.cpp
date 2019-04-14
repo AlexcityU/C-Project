@@ -12,7 +12,7 @@ string readFile(string path) {
 
 	file.close();
 
-	return NULL;
+	return string("");
 }
 
 void writeFile(string path, string content) {

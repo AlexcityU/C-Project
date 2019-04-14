@@ -19,12 +19,11 @@ private:
 	string condition;
 	string status;
 
-	
-protected:
-	CampEquipment( string itemid, string itemname, string brand, string itemtype, string date, string condition, string status);
+	static int eCount;
+
 
 public:
-	
+	virtual string getAllInfo()const;
 	string getItemId() const;
 	string getItemName() const;
 	string getBrand() const;
@@ -32,39 +31,85 @@ public:
 	string getDate() const;
 	string getCondition() const;
 	string getStatus() const;
-	void setCondition();
-	void setStatus();
+	virtual int getCount() const;
 
-	virtual void finditem() {};
+	void setCondition(string& _condition);
+	void setStatus(string & _status);
+
+	bool checkborrow();
+
+	
+	CampEquipment();
+	CampEquipment(string itemid, string itemname, string brand, string itemtype, string date, string condition, string status);
+	~CampEquipment();
 };
 
-class Tent : CampEquipment
+class Tent : public CampEquipment
 {
-public:
-	void finditem(){}
+private:
+	
 	string tentsize;
 	string tenttype;
 	string numdoors;
-	bool doulayer;
+	string doulayer;
 	string color;
-	Tent(string tentsize, string tenttype,string numdoors,bool doulayer,string color);
-};
-class Lantern : CampEquipment
-{
+
+	static int tCount;
+
+
 public:
-	void finditem() {}
+	string getTentSize()const;
+	string getTentType()const;
+	string getNumDoors()const;
+	string getDouLayer()const;
+
+	string getAllInfo()const;
+
+
+	Tent(string itemid, string itemname, string brand, string itemtype, string date, string condition,
+		string status, string tentsize, string tenttype, string numdoors, string doulayer, string color);
+	~Tent();
+
+};
+class Lantern : public CampEquipment
+{
+private:
 	string lantsize;
 	string lanttype;
 	string fueltype;
-	Lantern(string lantsize, string lanttype,string fueltype );
-};
-class Stove : CampEquipment
-{
+
+	static int lCount;
+
 public:
-	void finditem() {}
+	string getLantSize()const;
+	string getLantType()const;
+	string getFuelType()const;
+
+	string getAllInfo()const;
+
+	Lantern(string itemid, string itemname, string brand, 
+		string itemtype, string date, string condition, string status,string lantsize,string lanttype,string fueltype);
+	~Lantern();
+
+};
+class Stove : public CampEquipment
+{
+private:
+
 	string stovetype;
 	string fueltype;
-	Stove(string stovetype, string furltype);
+
+	static int sCount;
+
+public:
+
+	string getStoveType()const;
+	string getFuelType()const;
+
+	string getAllInfo()const;
+	
+	Stove(string itemid, string itemname, string brand, string itemtype, string date, string condition, string status,string stovetype,string fueltype);
+	~Stove();
 };
 
 

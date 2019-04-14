@@ -4,19 +4,32 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include "Equipment.h"
+#include "User.h"
+#include "LoanRecord.h"
+#include "FileHandler.h"
+
 using namespace std;
 
-class admin_login
+class Admin
 {
 private:
-	string admin_id;
-	string admin_password;
 
-protected:
-	admin_login(string admin_id, string admin_password);
+	CampEquipment **equipments;
+	LoanRecord **records;
+
+	int equipment_size;
+	int records_size;
+
+	void retrieveEquipments();
+	bool retrieveLoanRecords();
 
 public:
-	string get_admin_id() const;
-	string get_admin_password() const;
+	CampEquipment *getEquipment(int i);
+
+	Admin();
+	~Admin();
+
 };
+
 #endif
