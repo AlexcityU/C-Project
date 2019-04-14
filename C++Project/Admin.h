@@ -23,13 +23,16 @@ private:
 
 	bool retrieveEquipments();
 	bool retrieveLoanRecords();
+	void displayrecords();
+	void displayEquipments();
+
 
 public:
 	CampEquipment *getEquipment(int i);
 
 	Admin();
 	~Admin();
-
+	
 };
 
 #endif

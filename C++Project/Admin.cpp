@@ -19,6 +19,17 @@ Admin::~Admin()
 {
 }
 
+void Admin::displayrecords()
+{
+}
+
+void Admin::displayEquipments()
+{
+	for (int i = 0; i < equipments[0]->getCount(); i++) {
+		cout << equipments[i]->getAllInfo();
+	}
+}
+
 bool Admin::retrieveEquipments()
 {
 	string str = readFile("camp_equipment.txt");
