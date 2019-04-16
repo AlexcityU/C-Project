@@ -92,7 +92,7 @@ void LoanControl::setUser()
 
 void LoanControl::addRecord(LoanRecord * r)
 {
-	int count = getRecord(0)->getCount();
+	int count = getRecord(0)->getCount() - 1;
 	LoanRecord **shift_r = new LoanRecord*[count + 1];
 	for (int i = 0; i < count; i++) {
 		shift_r[i] = getRecord(i);

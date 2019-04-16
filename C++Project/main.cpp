@@ -103,13 +103,14 @@ bool userLog(string username, string password) {
 		else if (choice == 2)
 		{
 			system("cls");
-			lc.displayLoanAvailableEquipments();
+			lc.displayUserRecords();
 			system("pause");
 		}
 		else if (choice == 3)
 		{
 			system("cls");
 			cout << "available" << endl;
+			lc.displayLoanAvailableEquipments();
 			system("pause");
 		}
 		else if (choice == 4)
