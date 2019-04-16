@@ -92,7 +92,7 @@ void LoanControl::setUser()
 
 void LoanControl::addRecord(LoanRecord * r)
 {
-	int count = getRecord(0)->getCount();
+	int count = getRecord(0)->getCount() - 1;
 	LoanRecord **shift_r = new LoanRecord*[count + 1];
 	for (int i = 0; i < count; i++) {
 		shift_r[i] = getRecord(i);
@@ -146,22 +146,23 @@ bool LoanControl::borrowEquipment(string eid)
 		CampEquipment *e = getEquipment(i);
 
 		if (!e->getItemId().compare(eid)) {
-			if (e->canLoan()) {
-				if (user->borrowEquip()) {
+			if (e->canLoan() && user->borrowEquip()) {
 
-					// update Equipments
+				// update Equipments
 
-					e->setStatus("out");
-					updateEquipments();
+				e->setStatus("out");
+				updateEquipments();
 
-					// update Records
+				// update Records
 
-					LoanRecord *new_r = new LoanRecord(e->getItemName(), e->getItemId(), user->getId(), "out");
-					addRecord(new_r);
-					updateRecords();
-					
-					return true;
-				}
+				LoanRecord *new_r = new LoanRecord(e->getItemName(), e->getItemId(), user->getId(), "out");
+				addRecord(new_r);
+				updateRecords();
+
+				return true;
+			}
+			else {
+				return false;
 			}
 		}
 	}

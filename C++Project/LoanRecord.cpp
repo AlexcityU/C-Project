@@ -32,7 +32,7 @@ LoanRecord::LoanRecord(string date, string itemid, string itname, string borrowe
 
 string LoanRecord::getRecord()
 {
-	return string(date + '|' + itemid + '|' + itname + '|' + borrower + '|' + returnDate + '|' + status);
+	return string(date + '|' + itemid + '|' + itname + '|' + borrower + '|' + returnDate + '|' + status + '\n');
 }
 
 string LoanRecord::getSid()

@@ -108,16 +108,25 @@ bool userLog(string username, string password) {
 		else if (choice == 2)
 		{
 			system("cls");
+<<<<<<< HEAD
 
 			lc.displayUserRecords();
 
+=======
+			lc.displayUserRecords();
+>>>>>>> a025f67a07839130d7c7fc4f26cb177539341961
 			system("pause");
 		}
 		else if (choice == 3)
 		{
 			system("cls");
+<<<<<<< HEAD
 			lc.displayLoanAvailableEquipments();
 
+=======
+			cout << "available" << endl;
+			lc.displayLoanAvailableEquipments();
+>>>>>>> a025f67a07839130d7c7fc4f26cb177539341961
 			system("pause");
 		}
 		
