@@ -116,18 +116,28 @@ void LoanControl::displayLoanAvailableEquipments()
 void LoanControl::displayUserRecords()
 {
 	// current records?
-	for (int i = 0; i < getRecord(0)->getCount(); i++) {
+	string userId=user->getId();
+	int rCount = getRecord(0)->getCount();
+	for (int i = 0; i < rCount ; i++) {
 		LoanRecord *record = getRecord(i);
-		if (!record->getSid().compare(user->getId())) {
-			cout << record->getRecord();
+		if (!record->getSid().compare(userId)) {
+			string itemId=equipments[i]->getItemId();
 
+			bool isReturned = false;
+
+			for (int q = 0; !isReturned && q < rCount ; q++)
+			{
+				if (!userId.compare(records[q]->getSid()) && !itemId.compare(records[q]->getEid()) &&
+					!records[q]->getStatus().compare("returned")) {
+
+					isReturned = true;
+				}
+			}
+
+			if (!isReturned)
+				cout << records[i]->getRecord();
 		}
 	}
-
-	
-
-
-
 }
 
 bool LoanControl::borrowEquipment(string eid)

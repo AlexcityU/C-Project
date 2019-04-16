@@ -96,15 +96,21 @@ bool userLog(string username, string password) {
 			system("cls");
 			cout << "plz nter the itemID:\n" << endl;
 			cin >> itemID;
-			lc.borrowEquipment(itemID);
-			cout << "sucess" << endl;
+
+			if (lc.borrowEquipment(itemID)) {
+				cout << "succes" << endl;
+
+			}
+			
 			system("pause");
 
 		}
 		else if (choice == 2)
 		{
 			system("cls");
-			//lr.getRecord();
+
+			lc.displayUserRecords();
+
 			system("pause");
 		}
 		else if (choice == 3)
