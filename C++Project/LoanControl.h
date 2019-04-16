@@ -3,6 +3,7 @@
 
 #include "User.h"
 #include "Admin.h"
+#include "LoanRecord.h"
 
 class LoanControl : protected Admin
 {

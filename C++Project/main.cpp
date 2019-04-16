@@ -18,13 +18,13 @@ void admin() {
 	{
 		system("cls");
 		cout << "Admin Mode" << endl;
-		cout <<"####################\n"
-			 << "#1. Loan Rord      #\n"
-			 << "#2. change status  #\n"
-			 << "#3. look equi      #\n"
-			 << "#4. produe .txt    #\n"
-			 << "#5. close          #\n"
-			 <<"####################\n";
+		cout <<"######################\n"
+			 << "#1.Loan Rord         #\n"
+			 << "#2.display equi      #\n"
+			 << "#3.change status     #\n"
+			 << "#4.produe .txt       #\n"
+			 << "#5.close             #\n"
+			 <<"######################\n";
 		cin >> choice;
 		if (choice == 1)
 		{
@@ -35,19 +35,21 @@ void admin() {
 		}
 		else if (choice == 2)
 		{
-			string status, eid;
 			system("cls");
-			cout << "plz enter the status:";
-			cin >> status;
-			cout << "enter the equipment id";
-			cin >> eid;
-			a.changeCondition(eid, status);
+			a.displayEquipments();
 			system("pause");
 		}
 		else if (choice == 3)
 		{
+			string status, eid;
 			system("cls");
-			a.displayEquipments();
+			cout << "enter the equipment id:"<<endl;
+			cin >> eid;
+			cout << "plz enter the status:"<<endl;
+			cin >> status;
+			
+			a.changeCondition(eid, status);
+			cout << "sucess" << endl;
 			system("pause");
 		}
 		else if (choice == 4)
@@ -60,20 +62,19 @@ void admin() {
 		{
 			ended = false;
 		}
-
-
-
 	}
-
-
 }
 
 bool userLog(string username, string password) {
+
 	int choice;
+	
 	bool ended = true;
 	bool isUser = false;
-	LoanControl lc(username, password, isUser);
 
+	LoanControl lc(username, password, isUser);
+	
+	
 	if (!isUser)
 		return false;
 
@@ -83,11 +84,10 @@ bool userLog(string username, string password) {
 		cout << "Now choose what you want to do~~~" << endl;
 		cout << "---------------------------------" << endl;
 		cout << "########################\n"
-			<< "#1. Borrow equipment   #\n"
-			<< "#2. Info of item       #\n"
-			<< "#3. available equi     #\n"
-			<< "#4. return item        #\n"
-			<< "#5. close              #\n"
+			<< "#1.Borrow equipment    #\n"
+			<< "#2.Info of loan record #\n"
+			<< "#3.available equi      #\n"
+			<< "#4.close               #\n"
 			<< "########################\n";
 		cin >> choice;
 		if (choice == 1)
@@ -97,31 +97,25 @@ bool userLog(string username, string password) {
 			cout << "plz nter the itemID:\n" << endl;
 			cin >> itemID;
 			lc.borrowEquipment(itemID);
+			cout << "sucess" << endl;
 			system("pause");
 
 		}
 		else if (choice == 2)
 		{
 			system("cls");
-			lc.displayLoanAvailableEquipments();
+			//lr.getRecord();
 			system("pause");
 		}
 		else if (choice == 3)
 		{
 			system("cls");
-			cout << "available" << endl;
+			lc.displayLoanAvailableEquipments();
+
 			system("pause");
 		}
+		
 		else if (choice == 4)
-		{
-			string rItemID;
-			system("cls");
-			cout << "plz enter the item ID:\n" << endl;
-			cin >> rItemID;
-			//lc.returnEquipment(rItemID;
-			system("pause");
-		}
-		else if (choice == 5)
 		{
 			ended = false;
 		}
@@ -130,11 +124,10 @@ bool userLog(string username, string password) {
 
 
 	}
-
-}
-bool checkuser(string naem, string pw) {
+	
 	return true;
 }
+
 
 int main() {
 	/*bool isUser;

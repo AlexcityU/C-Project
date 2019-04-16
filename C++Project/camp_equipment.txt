@@ -1,4 +1,4 @@
-T001|25th Jam Tent|Nikko|dome|02042014|good|in|4|dome|2|true|blue
+T001|25th Jam Tent|Nikko|dome|02042014|good|out|4|dome|2|true|blue
 T002|25th Jam Tent|Nikko|dome|02042014|good|in|4|dome|2|true|blue
 T003|25th Jam Tent|Nikko|dome|02042014|good|out|4|dome|2|true|blue
 T004|Family Tent|LUXE|wall|12042008|damaged|in|4|wall|10|true|orange
