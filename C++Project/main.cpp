@@ -155,7 +155,7 @@ int main() {
 		admin();
 	}
 	else {
-		if (userLog(name, pw))
+		if (!userLog(name, pw))
 		{
 			cout << "no such user" << endl;
 		}
