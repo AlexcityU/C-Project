@@ -15,28 +15,30 @@ class Admin
 {
 private:
 
-	CampEquipment **equipments;
-	LoanRecord **records;
-
-	int equipment_size;
-	int records_size;
 
 	bool retrieveEquipments();
 	bool retrieveLoanRecords();
 
-	void updateEquipments();
+protected:
 
+	CampEquipment **equipments;
+	LoanRecord **records;
+
+	bool hasR;
+
+	void updateEquipments();
+	void updateRecords();
 
 public:
 	CampEquipment *getEquipment(int i);
-
+	LoanRecord *getRecord(int i);
 
 	void displayrecords();
 	void displayEquipments();
 	bool changeCondition(string eid, string condition);
 
 	Admin();
-	~Admin();
+	virtual ~Admin();
 	
 };
 

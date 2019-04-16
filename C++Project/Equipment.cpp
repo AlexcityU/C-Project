@@ -70,12 +70,17 @@ int CampEquipment::getCount() const
 	return eCount;
 }
 
-void CampEquipment::setCondition(string& _condition)
+bool CampEquipment::canLoan() const
+{
+	return (!condition.compare("good") && !status.compare("in")) ? true : false;
+}
+
+void CampEquipment::setCondition(string _condition)
 {
 	this->condition = _condition;
 }
 
-void CampEquipment::setStatus(string & _status)
+void CampEquipment::setStatus(string _status)
 {
 	this->status = _status;
 }

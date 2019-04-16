@@ -33,8 +33,10 @@ public:
 	string getStatus() const;
 	virtual int getCount() const;
 
-	void setCondition(string& _condition);
-	void setStatus(string & _status);
+	bool canLoan() const;
+
+	void setCondition(string _condition);
+	void setStatus(string _status);
 
 	bool checkborrow();
 

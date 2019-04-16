@@ -25,6 +25,11 @@ string User::getAddress() const
 	return address;
 }
 
+int User::getCount() const
+{
+	return count;
+}
+
 int User::getBorrow() const
 {
 	return borrow;
@@ -64,6 +69,8 @@ User::User(string id, string name, string section, string dob, string address)
 	this->section = section;
 	this->dob = dob;
 	this->address = address;
+
+	count++;
 }
 
 string Scout::getRank() const
@@ -77,6 +84,8 @@ int Scout::findBorrow() const
 		return 1;
 	if (!this->rank.compare("Patrol Leader") || !this->rank.compare("Assistant Patrol Leader"))
 		return 3;
+
+	return -1;
 }
 
 
@@ -125,3 +134,5 @@ Scouter::Scouter(string id, string name, string section, string dob, string addr
 	this->rank = rank;
 	this->borrow = this->findBorrow();
 }
+
+int User::count = 0;

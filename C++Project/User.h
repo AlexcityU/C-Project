@@ -15,6 +15,8 @@ private:
 	string dob;
 	string address;
 
+	static int count;
+
 protected:
 	User(string id, string name, string section, string dob, string address);
 	int borrow;
@@ -26,6 +28,7 @@ public:
 	string getSection() const;
 	string getDob() const;
 	string getAddress() const;
+	int getCount() const;
 	int getBorrow() const;
 	int getNumItem() const;
 

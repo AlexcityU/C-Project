@@ -19,10 +19,15 @@ private:
 
 public:
 
+	LoanRecord(string itemid, string itname, string borrower, string status);
 	LoanRecord(string date, string itemid, string itname, string borrower, string returnDate, string status);
 	~LoanRecord();
 
 	string getRecord();
+	string getSid();
+	string getEid();
+	string getStatus();
+	int getCount();
 
 };
 

@@ -8,6 +8,14 @@ CampEquipment * Admin::getEquipment(int i)
 	return nullptr;
 }
 
+LoanRecord * Admin::getRecord(int i)
+{
+	if (i >= 0 && i < ((hasR)? records[0]->getCount():0))
+		return records[i];
+
+	return nullptr;
+}
+
 bool Admin::changeCondition(string eid, string condition)
 {
 	bool can = condition.compare("good") && condition.compare("being repaired") && condition.compare("disposal") && condition.compare("damaged");
@@ -29,7 +37,7 @@ bool Admin::changeCondition(string eid, string condition)
 Admin::Admin()
 {
 	this->retrieveEquipments();
-	this->retrieveLoanRecords();
+	hasR = (this->retrieveLoanRecords()) ? true : false;
 
 }
 
@@ -39,6 +47,9 @@ Admin::~Admin()
 
 void Admin::displayrecords()
 {
+	for (int i = 0; i < records[0]->getCount(); i++) {
+		cout << records[i]->getRecord() << endl;
+	}
 }
 
 void Admin::displayEquipments()
@@ -103,6 +114,16 @@ void Admin::updateEquipments()
 	}
 
 	writeFile("camp_equipment.txt", str);
+}
+
+void Admin::updateRecords()
+{
+	string str = "";
+	for (int i = 0; i < records[0]->getCount(); i++) {
+		str += records[i]->getRecord() + '\n';
+	}
+
+	writeFile("record.txt", str);
 }
 
 bool Admin::retrieveEquipments()
