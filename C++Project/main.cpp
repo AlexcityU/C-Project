@@ -13,6 +13,7 @@ void admin() {
 	int choice;
 	bool ended = true;
 
+	Admin a;
 	while (ended)
 	{
 		system("cls");
@@ -28,23 +29,25 @@ void admin() {
 		if (choice == 1)
 		{
 			system("cls");
-			LoanControl.displayUserRecords();
+			a.displayrecords();
 			system("pause");
 
 		}
 		else if (choice == 2)
 		{
-			string status;
+			string status, eid;
 			system("cls");
 			cout << "plz enter the status:";
 			cin >> status;
-			CampEquipment.setStatus(status);
+			cout << "enter the equipment id";
+			cin >> eid;
+			a.changeCondition(eid, status);
 			system("pause");
 		}
 		else if (choice == 3)
 		{
 			system("cls");
-			CampEquipment.getAllInfo();
+			a.displayEquipments();
 			system("pause");
 		}
 		else if (choice == 4)
@@ -65,9 +68,14 @@ void admin() {
 
 }
 
-void userLog() {
+bool userLog(string username, string password) {
 	int choice;
 	bool ended = true;
+	bool isUser = false;
+	LoanControl lc(username, password, isUser);
+
+	if (!isUser)
+		return false;
 
 	while (ended)
 	{
@@ -88,14 +96,14 @@ void userLog() {
 			system("cls");
 			cout << "plz nter the itemID:\n" << endl;
 			cin >> itemID;
-			LoanControl.borrowEquipment(itemID);
+			lc.borrowEquipment(itemID);
 			system("pause");
 
 		}
 		else if (choice == 2)
 		{
 			system("cls");
-			CampEquipment.getAllInfo();
+			lc.displayLoanAvailableEquipments();
 			system("pause");
 		}
 		else if (choice == 3)
@@ -110,7 +118,7 @@ void userLog() {
 			system("cls");
 			cout << "plz enter the item ID:\n" << endl;
 			cin >> rItemID;
-			LoanControl.returnEquipment(rItemID);
+			//lc.returnEquipment(rItemID;
 			system("pause");
 		}
 		else if (choice == 5)
@@ -147,11 +155,9 @@ int main() {
 		admin();
 	}
 	else {
-		bool isUser;
-		LoanControl(name, pw,isUser);
-		if (isUser)
+		if (userLog(name, pw))
 		{
-			userLog();
+			cout << "no such user" << endl;
 		}
 	}
 	
