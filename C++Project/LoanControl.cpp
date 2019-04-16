@@ -136,22 +136,23 @@ bool LoanControl::borrowEquipment(string eid)
 		CampEquipment *e = getEquipment(i);
 
 		if (!e->getItemId().compare(eid)) {
-			if (e->canLoan()) {
-				if (user->borrowEquip()) {
+			if (e->canLoan() && user->borrowEquip()) {
 
-					// update Equipments
+				// update Equipments
 
-					e->setStatus("out");
-					updateEquipments();
+				e->setStatus("out");
+				updateEquipments();
 
-					// update Records
+				// update Records
 
-					LoanRecord *new_r = new LoanRecord(e->getItemName(), e->getItemId(), user->getId(), "out");
-					addRecord(new_r);
-					updateRecords();
-					
-					return true;
-				}
+				LoanRecord *new_r = new LoanRecord(e->getItemName(), e->getItemId(), user->getId(), "out");
+				addRecord(new_r);
+				updateRecords();
+
+				return true;
+			}
+			else {
+				return false;
 			}
 		}
 	}
