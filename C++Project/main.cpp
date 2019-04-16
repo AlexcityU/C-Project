@@ -20,7 +20,7 @@ void admin() {
 		cout <<"####################\n"
 			 << "#1. Loan Rord      #\n"
 			 << "#2. change status  #\n"
-			 << "#3. look eq        #\n"
+			 << "#3. look equi      #\n"
 			 << "#4. produe .txt    #\n"
 			 << "#5. close          #\n"
 			 <<"####################\n";
@@ -38,7 +38,7 @@ void admin() {
 			system("cls");
 			cout << "plz enter the status:";
 			cin >> status;
-			
+			CampEquipment.setStatus(status);
 			system("pause");
 		}
 		else if (choice == 3)
